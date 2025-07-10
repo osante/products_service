@@ -1,0 +1,6 @@
+app:
+  tax_calculator_type: ITBIS_TAX_CALCULATOR
+
+spring:
+  application:
+    name: productservice

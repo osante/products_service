@@ -1,0 +1,48 @@
+package com.uva.productservice.rest;
+
+import com.uva.productservice.model.Product;
+import com.uva.productservice.service.ProductService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class ProductRestController {
+  private final ProductService productService;
+
+  @Autowired
+  public ProductRestController(ProductService productService) {
+    this.productService = productService;
+  }
+
+  @GetMapping("/")
+  String index() {
+    return "Version 1.0.0";
+  }
+
+  @GetMapping("/productos")
+  List<Product> getProducts() {
+    return productService.getProducts();
+  }
+
+  @GetMapping("/productos/{id}")
+  ResponseEntity<Product> getProduct(@PathVariable long id) {
+    return ResponseEntity.of(productService.getProduct(id));
+  }
+
+  @PostMapping("/productos")
+  Product saveProduct(@RequestBody Product product) {
+    return productService.saveProduct(product);
+  }
+
+  @PutMapping("/productos/{id}")
+  Product updateProduct(@PathVariable long id, @RequestBody Product product) {
+    return productService.saveProduct(product.toBuilder().id(id).build());
+  }
+
+  @DeleteMapping("/productos/{id}")
+  void deleteProduct(@PathVariable long id) {
+    productService.deleteProduct(id);
+  }
+}
