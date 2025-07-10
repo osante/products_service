@@ -6,11 +6,19 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+/** Class to log the time that each method takes in the system. */
 @Aspect
 @Component
 @Slf4j
 public class ExecutionTimeLogger {
 
+  /**
+   * Logs the time that the execution of the passed method takes.
+   *
+   * @param joinPoint with the method to observe the execution time.
+   * @return the result of the observed method.
+   * @throws Throwable any exception threw by the observed method.
+   */
   @Around("execution(* com.uva.productservice..*(..))")
   public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
     long start = System.nanoTime();

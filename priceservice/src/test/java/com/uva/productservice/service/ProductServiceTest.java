@@ -62,7 +62,7 @@ public class ProductServiceTest {
   @Test
   void saveProductTest() {
     when(productRepositoryMock.save(Product.builder().name("Carrillada").build()))
-            .thenReturn(Product.builder().id(2L).name("Carrillada").build());
+        .thenReturn(Product.builder().id(2L).name("Carrillada").build());
 
     Product product = productService.saveProduct(Product.builder().name("Carrillada").build());
 

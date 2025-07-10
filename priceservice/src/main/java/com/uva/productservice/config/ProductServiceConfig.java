@@ -19,6 +19,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class ProductServiceConfig {
+
+  /** The type of the tax calculator provided on the properties. */
   @Value("${app.tax_calculator_type}")
   private TaxCalculator.TaxCalculatorType taxCalculatorType;
 
