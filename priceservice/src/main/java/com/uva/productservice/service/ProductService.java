@@ -10,32 +10,32 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
-    private final ProductRepository productRepository;
-    private final TaxCalculator taxCalculator;
+  private final ProductRepository productRepository;
+  private final TaxCalculator taxCalculator;
 
-    @Autowired
-    public ProductService(ProductRepository productRepository, TaxCalculator taxCalculator) {
-        this.productRepository = productRepository;
-        this.taxCalculator = taxCalculator;
-    }
+  @Autowired
+  public ProductService(ProductRepository productRepository, TaxCalculator taxCalculator) {
+    this.productRepository = productRepository;
+    this.taxCalculator = taxCalculator;
+  }
 
-    public List<Product> getProducts() {
-        return productRepository.findAll();
-    }
+  public List<Product> getProducts() {
+    return productRepository.findAll();
+  }
 
-    public Optional<Product> getProduct(long id) {
-        return productRepository.findById(id);
-    }
+  public Optional<Product> getProduct(long id) {
+    return productRepository.findById(id);
+  }
 
-    public Product saveProduct(Product product) {
-        return productRepository.save(product);
-    }
+  public Product saveProduct(Product product) {
+    return productRepository.save(product);
+  }
 
-    public void deleteProduct(long id) {
-        productRepository.deleteById(id);
-    }
+  public void deleteProduct(long id) {
+    productRepository.deleteById(id);
+  }
 
-    public float calculateTax(Product product) {
-        return taxCalculator.calculateTax(product);
-    }
+  public float calculateTax(Product product) {
+    return taxCalculator.calculateTax(product);
+  }
 }

@@ -121,7 +121,8 @@ class ProductServiceApplicationTests {
   void integrationTest_deleteProduct() {
     restTemplate.delete(baseUrl + "products/1");
 
-    ResponseEntity<Product> responseEntity = restTemplate.getForEntity(baseUrl + "products/1", Product.class);
+    ResponseEntity<Product> responseEntity =
+        restTemplate.getForEntity(baseUrl + "products/1", Product.class);
 
     assertThat(responseEntity.getStatusCode().value()).isEqualTo(404);
   }
