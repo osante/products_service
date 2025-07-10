@@ -4,3 +4,5 @@ app:
 spring:
   application:
     name: productservice
+  jpa:
+    defer-datasource-initialization: true
