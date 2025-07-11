@@ -3,10 +3,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/priceservice" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/productservice" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/priceservice" />
+            <option value="$PROJECT_DIR$/productservice" />
           </set>
         </option>
       </GradleProjectSettings>

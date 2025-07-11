@@ -29,8 +29,7 @@ public class Product {
   @Builder.Default String name = "";
 
   /** Description of the product. */
-  @NonNull
-  @Builder.Default String description = "";
+  @NonNull @Builder.Default String description = "";
 
   /** Price of the product. */
   float price;
