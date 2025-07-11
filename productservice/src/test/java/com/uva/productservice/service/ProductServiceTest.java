@@ -33,7 +33,7 @@ public class ProductServiceTest {
   void getProductsTest() {
     List<Product> expectedProducts =
         List.of(Product.builder().id(1L).build(), Product.builder().id(2L).build());
-    when(productRepositoryMock.findAll()).thenReturn(expectedProducts);
+    when(productRepositoryMock.findAllByCriteria(null, null, null)).thenReturn(expectedProducts);
 
     List<Product> products = productService.getProducts(null, null, null);
 
