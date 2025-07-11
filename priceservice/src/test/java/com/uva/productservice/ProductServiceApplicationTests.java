@@ -31,7 +31,7 @@ class ProductServiceApplicationTests {
   void contextLoads() {}
 
   @Test
-  void integrationTest_listProducts() {
+  void integrationTest_listAllProducts() {
     List<Product> products =
         List.of(restTemplate.getForObject(baseUrl + "products", Product[].class));
 
@@ -56,6 +56,22 @@ class ProductServiceApplicationTests {
                     .description("5 con todo")
                     .price(15.5F)
                     .build(),
+                Product.builder()
+                    .id(4L)
+                    .name("Chilaquiles")
+                    .description("En salsa verde con pollo")
+                    .price(11.5F)
+                    .build()));
+  }
+
+  @Test
+  void integrationTest_listProductsByCriteria() {
+    List<Product> products =
+        List.of(restTemplate.getForObject(baseUrl + "products?name=Chilaquiles", Product[].class));
+
+    assertThat(products)
+        .isEqualTo(
+            List.of(
                 Product.builder()
                     .id(4L)
                     .name("Chilaquiles")

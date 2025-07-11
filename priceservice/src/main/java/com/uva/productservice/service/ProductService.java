@@ -31,8 +31,8 @@ public class ProductService {
    *
    * @return a list of the products.
    */
-  public List<Product> getProducts() {
-    return productRepository.findAll();
+  public List<Product> getProducts(String name, String description, Float price) {
+    return productRepository.findAllByCriteria(name, description, price);
   }
 
   /**

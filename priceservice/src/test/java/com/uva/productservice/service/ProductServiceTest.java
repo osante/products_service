@@ -35,7 +35,7 @@ public class ProductServiceTest {
         List.of(Product.builder().id(1L).build(), Product.builder().id(2L).build());
     when(productRepositoryMock.findAll()).thenReturn(expectedProducts);
 
-    List<Product> products = productService.getProducts();
+    List<Product> products = productService.getProducts(null, null, null);
 
     assertThat(products).isEqualTo(expectedProducts);
   }
